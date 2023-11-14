@@ -1,4 +1,10 @@
 import GeneralTemplate from "./assets/templates/GeneralTemplate";
+import Calculator from './assets/css/calculator.module.css'
+// import MeansPart from './MeansPart'
+// import Health from './Health'
+// import Limitations from './Limitations'
+
+
 
 function App() {
   return (
