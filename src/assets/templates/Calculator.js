@@ -7,11 +7,53 @@ import '../css/css.css'
 function Calculator() {
     const [radio, setRadio] = useState(false);
     console.log(radio);
+    const [cm, setCm] = useState(0)
+    const [kg, setKg] = useState(0)
+    const [inMeas, setInMeas] = useState(0)
+    const [lbs, setlbs] = useState(0)
+    //result
+    const [resMetric, setResmetric] = useState(false)
+    const [resImper, setResImper] = useState(false)
 
-    const chooseRadio = (e) => {
-        setRadio(e.target.value)
+    // METRIC
+    let m = cm / 100;
+    const calcMetric = () => {
+        let res = kg / Math.pow(m, 2)
+        return setResmetric(res.toFixed(2))
     }
 
+    //IMPERIAL
+    const calcImperial = () => {
+        let res = 703 * (lbs / (inMeas * inMeas))
+        return setResImper(res.toFixed(2))
+    }
+
+    const minWeightMetric = (18.5 * Math.pow(m, 2)).toFixed(1)
+    const maxWeightMetric = (24.9 * Math.pow(m, 2)).toFixed(1)
+
+    const minWeightImper = ((18.5 / 703) * Math.pow(inMeas, 2)).toFixed(1)
+    const maxWeightImper = ((24.9 / 703) * Math.pow(inMeas, 2)).toFixed(1)
+
+    const hiddenImp = (radio === 'imperial') ? '' : 'hidden';
+    const hiddenMetr = (radio === 'metric') ? '' : 'hidden';
+
+    const resultTemplate =
+        (resMetric < 18.5 && resImper < 18.5) ? <div>Your BMI suggests you’ve underweight. Your ideal weight is between <span className={hiddenMetr}> {minWeightMetric} - {maxWeightMetric} kg</span> <span className={hiddenImp}> {minWeightImper} - {maxWeightImper} lb</span></div>
+            : ((resMetric >= 18.5 && resMetric <= 25) || (resImper >= 18.5 && resImper < 25)) ? <div>Congratulation! Your BMI suggests you’re a healthy weight. Your ideal weight is between <span className={hiddenMetr}> {minWeightMetric} - {maxWeightMetric} kg</span> <span className={hiddenImp}> {minWeightImper} - {maxWeightImper} lb</span>  </div>
+                : ((resMetric > 25 && resMetric <= 39.9) || (resImper >= 25 && resImper < 39.9)) ? <div> Your BMI suggests you’ve overweight. Your ideal weight is between <span className={hiddenMetr}> {minWeightMetric} - {maxWeightMetric} kg</span> <span className={hiddenImp}> {minWeightImper} - {maxWeightImper} lb</span> <span><a className={calc.mail} href='mailto:michael.jordany@clubmetrousa.com'>Contact me</a> and I'll help you </span> </div>
+                    : (resMetric >= 40 || resImper >= 40) ? <div>Your BMI suggests you’ve obese. Your ideal weight is between <span className={hiddenMetr}> {minWeightMetric} - {maxWeightMetric} kg</span> <span className={hiddenImp}> {minWeightImper} - {maxWeightImper} lb</span> <span><a className={calc.mail} href='mailto:michael.jordany@clubmetrousa.com'>Contact me</a> and I'll help you </span> </div> : '';
+
+    const displayResImpMetr = (radio === 'metric') ? resMetric : resImper;
+
+    console.log(resMetric);
+
+    const checkImperOrMetr = () => (radio === 'metric') ? calcMetric() : calcImperial()
+
+    const enter = (e) => {
+        if (e.key === 'Enter') {
+            return checkImperOrMetr()
+        }
+    }
     const showParamsMetric = (radio === 'metric') ? 'active' : 'hidden';
     const showParamsImperial = (radio === 'imperial') ? 'active' : 'hidden';
     const showWelcome = (radio === false) ? 'active' : 'hidden';;
@@ -32,11 +74,11 @@ function Calculator() {
                         <h3 className={calc.titleForm}>Enter your details below</h3>
                         <div className={calc.flex}>
                             <div className={calc.MI}>
-                                <input onChange={chooseRadio} checked={radio === 'metric'} className={calc.radio} id='metric' name='metric' value='metric' type='radio' />
+                                <input onChange={(e) => { setRadio(e.target.value) }} checked={radio === 'metric'} className={calc.radio} id='metric' name='metric' value='metric' type='radio' />
                                 <label for='metric' className={calc.label}>Metric</label>
                             </div>
                             <div className={calc.MI}>
-                                <input onChange={chooseRadio} checked={radio === 'imperial'} className={calc.radio} id='imperial' name='imperial' value='imperial' type='radio' />
+                                <input onChange={(e) => { setRadio(e.target.value) }} checked={radio === 'imperial'} className={calc.radio} id='imperial' name='imperial' value='imperial' type='radio' />
                                 <label for='imperial' className={calc.label}>Imperial</label>
                             </div>
                         </div>
@@ -44,12 +86,16 @@ function Calculator() {
                             <div className={calc.flexMetric}>
                                 <div className={calc.height}>
                                     <label className={calc.label}>Height</label>
-                                    <input className={calc.InputNumber} type='number' placeholder='0' />
+                                    <input onKeyDown={enter}
+                                        onChange={(e) => setCm(e.target.value)}
+                                        className={calc.InputNumber} type='number' placeholder='0' />
                                     <div className={calc.measure}>cm</div>
                                 </div>
                                 <div className={calc.weight}>
                                     <label className={calc.label}>Weight</label>
-                                    <input className={calc.InputNumber} type='number' placeholder='0' />
+                                    <input onKeyDown={enter}
+                                        onChange={(e) => setKg(e.target.value)}
+                                        className={calc.InputNumber} type='number' placeholder='0' />
                                     <div className={calc.measure}>kg</div>
                                 </div>
                             </div>
@@ -59,34 +105,22 @@ function Calculator() {
                             <div className={calc.flexImperial}>
                                 <div className={calc.height}>
                                     <label className={calc.label}>Height</label>
-                                    <div className={calc.flexInput}>
-                                        <div className={calc.slInpt}>
-                                            <input className={calc.InputNumber} type='number' placeholder='0' />
-                                            <div className={calc.measureImp}>ft</div>
-                                        </div>
-                                        <div className={calc.slInpt}>
-                                            <input className={calc.InputNumber} type='number' placeholder='0' />
-                                            <div className={calc.measureImp}>in</div>
-                                        </div>
-                                    </div>
+                                    <input onKeyDown={enter}
+                                        onChange={(e) => setInMeas(e.target.value)}
+                                        className={calc.InputNumber} type='number' placeholder='0' />
+                                    <div className={calc.measure}>in</div>
                                 </div>
                                 <div className={calc.weight}>
                                     <label className={calc.label}>Weight</label>
-                                    <div className={calc.flexInput}>
-                                        <div className={calc.slInpt}>
-                                            <input className={calc.InputNumber} type='number' placeholder='0' />
-                                            <div className={calc.measureImp}>st</div>
-                                        </div>
-                                        <div className={calc.slInpt}>
-                                            <input className={calc.InputNumber} type='number' placeholder='0' />
-                                            <div className={calc.measureImp}>ibs</div>
-                                        </div>
-                                    </div>
+                                    <input onKeyDown={enter}
+                                        onChange={(e) => setlbs(e.target.value)}
+                                        className={calc.InputNumber} type='number' placeholder='0' />
+                                    <div className={calc.measure}>ibs</div>
                                 </div>
                             </div>
                         </div>
                         <div className={(radio === false) ? 'hidden' : ''}>
-                            <button className={calc.btn}>check</button>
+                            <button onKeyDown={enter} onClick={checkImperOrMetr} className={calc.btn}>check</button>
                         </div>
 
                         <div className={showWelcome}>
@@ -100,9 +134,10 @@ function Calculator() {
                             <div className={calc.wrapResult}>
                                 <div className={calc.item}>
                                     <h3 className={calc.name}>Your BMI is...</h3>
-                                    <span className={calc.number}>24.5</span>
+                                    <span className={calc.number}>{displayResImpMetr}</span>
                                 </div>
-                                <p className={calc.expl}>Your BMI suggests you’re a healthy weight. Your ideal weight is between <span className={calc.span}>63.3kgs - 85.2kgs</span> <span className={calc.span}>9st 6lbs - 12st 10lbs.</span>.</p>
+
+                                <p className={calc.expl}> {resultTemplate} </p>
 
                             </div>
                         </div>
