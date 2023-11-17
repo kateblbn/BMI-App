@@ -1,5 +1,4 @@
 .wrapper {
-    position: relative;
     height: 747px;
     margin-bottom: 65px;
 }
@@ -42,6 +41,7 @@
 }
 .flexPage {
     display: flex;
+    flex-wrap: wrap;
     gap: 32px;
     justify-content: center;
     align-items: center;
@@ -240,4 +240,148 @@ cursor: pointer;
 }
 .span {
     font-weight: 700;
+}
+.mail__footer {
+    color: black;
+}
+
+
+
+
+/* MEDIA */
+
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1060px;
+    }
+ }
+ @media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+    .gradient {
+        left: 0;
+        width: 100%;
+    }
+    .logo {
+        text-align: center;
+        margin: 25px 0;
+    }
+    .title, .descr {
+        text-align: center;
+    }
+    .wrap {
+        width: 100%;
+        text-align: center;
+    }
+    .descr {
+        width: 100%;
+    }
+    
+  }
+@media (max-width: 990px) { 
+    .wrap {
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .wrapForm {
+        width: 80%;
+        gap: 25px;
+        padding: 20px
+    }
+    .result {
+        width: 90%;
+    }
+    .wrapper {
+        margin-bottom: 126px;
+    }
+    .title {
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+    .titleForm {
+        font-size: 20px;
+    } 
+    .label {
+        width: 40%;
+    }
+    .InputNumber {
+        padding: 15px 20px;
+        width: 50%;
+    }
+    .btn {
+        margin-left: 0;
+    }
+    .wrapResult {
+        width: 90%;
+        padding: 15px;
+    }
+    .measure {
+        right: 42px;
+    }
+    .flex {
+        width: 100%;
+    }
+} 
+@media (max-width: 575px) {
+    .zIndex {
+        position: relative;
+    }
+    .title {
+        font-size: 37px;
+    }
+    .descr {
+        font-size: 15px;
+    }
+    .result {
+        width: 90%;
+        padding: 13px;
+    }
+    .result__title {
+        font-size: 21px;
+    }
+    .result__descr {
+        font-size: 12px;
+    }
+    .InputNumber {
+        width: 40%;
+        padding: 7px 7px;
+    }
+    .measure {
+        right: 17px;
+        top: 35px;
+    }
+    .weight, .height {
+        width: 100%;
+    }
+    .wrapResult {
+        padding: 10px;
+        flex-direction: column;
+    }
+    .item, .expl {
+        width: 100%;
+        font-size: 12px;
+    }
+    .name {
+        font-size: 14px;
+        margin-bottom: 7px; 
+    }
+    .number {
+        font-size: 35px;
+    }
+    .item {
+        flex-direction: row;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}
+@media (max-width: 345px) {
+    .wrap {
+        width: 100%;
+    }
 }

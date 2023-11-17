@@ -28,3 +28,17 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
+
+@media (max-width: 1200px) {
+  .container {
+    width: 1060px;
+  }
+
+}
+@media (max-width: 995px) {
+  .container {
+    width: 95%;
+  }
+
+}
+
