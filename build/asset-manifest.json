@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/BMI-App/static/css/main.5bb4246d.css",
+    "main.js": "/BMI-App/static/js/main.7dbfd974.js",
+    "static/media/bd-man.png": "/BMI-App/static/media/bd-man.a06fca0e724ef672eefe.png",
+    "static/media/game-icon.svg": "/BMI-App/static/media/game-icon.b8d08d3b1917cc152644fdd885a3b84f.svg",
+    "static/media/race.svg": "/BMI-App/static/media/race.01a5d827afdb0c1519875852e2766fc3.svg",
+    "static/media/pregnancy.svg": "/BMI-App/static/media/pregnancy.2a651d4f98dfac49190fcc17d1a90eb6.svg",
+    "static/media/sleep.svg": "/BMI-App/static/media/sleep.9378f309cb01606fb41afb6022f10481.svg",
+    "static/media/age.svg": "/BMI-App/static/media/age.5c81b8048c012f1f7f127a274be7d4c4.svg",
+    "static/media/muscle.svg": "/BMI-App/static/media/muscle.8dba5ffb1f8c4ce6a43232b2f1fd1ffc.svg",
+    "static/media/exercise.svg": "/BMI-App/static/media/exercise.5d1345b7438231d0ee420002997d7bc0.svg",
+    "static/media/gender.svg": "/BMI-App/static/media/gender.efb23be0a3ba64e3aab8d2532f90cfbd.svg",
+    "static/media/eating.svg": "/BMI-App/static/media/eating.5e077c923aeb5072b212fe27b01b7c77.svg",
+    "index.html": "/BMI-App/index.html",
+    "static/media/line-mean.svg": "/BMI-App/static/media/line-mean.19957ffa39d3769c1d917b1432a76a69.svg",
+    "main.5bb4246d.css.map": "/BMI-App/static/css/main.5bb4246d.css.map",
+    "main.7dbfd974.js.map": "/BMI-App/static/js/main.7dbfd974.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5bb4246d.css",
+    "static/js/main.7dbfd974.js"
+  ]
+}

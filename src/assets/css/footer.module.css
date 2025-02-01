@@ -1,0 +1,18 @@
+.wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.ftr {
+    position: absolute;
+    bottom: 25px;
+}
+.mail {
+    color: var(--a-445-ed, #646465);
+}
+
+@media (max-width: 768px) {
+    .ftr {
+        font-size: 13px;
+    }
+  }

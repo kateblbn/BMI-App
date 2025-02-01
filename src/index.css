@@ -1,0 +1,44 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.container {
+  font-family: 'Inter', sans-serif;
+  width: 1160px;
+  margin: 0 auto;
+}
+p, h1, h2, h3, h4, h5, span {
+  margin: 0;
+  padding: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+@media (max-width: 1200px) {
+  .container {
+    width: 1060px;
+  }
+
+}
+@media (max-width: 995px) {
+  .container {
+    width: 95%;
+  }
+
+}
+

@@ -1,0 +1,149 @@
+.wrapper {
+    margin: 120px 0 160px 0;
+    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(6, 16.6%);
+    grid-template-rows: repeat(3, 216px);
+    grid-template-areas: 
+    'limit limit limit gender gender gender'
+    '. . age age muscle muscle'
+    '. pregnancy pregnancy race race . ';
+}
+.wrapItem {
+    width: 564px;
+}
+.genTitle {
+    color: var(--Gunmetal, #253347);
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+.title {
+    color: var(--Gunmetal, #253347);
+    font-size: 18px;
+    font-weight: 600;
+}
+.descr {
+    color: var(--Dark-Electric-Blue, #5E6E85);
+    font-size: 16px;
+    font-weight: 400;
+}
+.flexItems {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+.wrapItem {
+    grid-area: limit;
+}
+.wrapItem1 {
+    grid-area: gender;
+}
+.wrapItem2 {
+    grid-area: age;
+}
+.wrapItem3 {
+    grid-area: muscle;
+}
+.wrapItem4 {
+    grid-area: pregnancy;
+}
+.wrapItem5 {
+    grid-area: race;
+}
+.wrapItem1,
+.wrapItem2,
+.wrapItem3,
+.wrapItem4,
+.wrapItem5 {
+    /* margin-bottom: 32px; */
+    display: flex;
+    width: 365px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 16px;
+    background: var(--Pure-White, #FFF);
+    box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+}
+.wrapItem1:hover,
+.wrapItem2:hover,
+.wrapItem3:hover,
+.wrapItem4:hover,
+.wrapItem5:hover {
+    box-shadow: 16px 32px 56px 0px rgba(45, 128, 216, 0.25);
+transition: .3s all;
+}
+
+@media (max-width: 995px) {
+    .wrapper {
+        width: 100%;
+        margin: 120px 0 160px 0;
+        gap: 32px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(4, 16%);
+        grid-template-areas: 
+        'limit limit limit limit  '
+        ' gender  gender age age '
+        ' muscle muscle  pregnancy pregnancy'
+        '.  race race . ';
+    }
+    .wrapItem {
+        margin: 0 auto;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    
+    }    
+    .wrapItem, .wrapItem1, .wrapItem2, .wrapItem3, .wrapItem4 {
+        width: 85%;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: repeat(4, 20%);
+        margin: 50px 0 100px 0;
+        gap: 25px;
+    }
+    .wrapItem, .wrapItem1, .wrapItem2, .wrapItem3, .wrapItem4, .wrapItem5 {
+        width: 85%;
+        padding: 20px;
+    }
+    .genTitle {
+        margin-bottom: 20px;
+    }
+    .descr {
+        font-size: 13px;
+    }
+    .flexItems {
+        align-items: center;
+    }
+}
+@media (max-width: 575px) {
+    .wrapper {
+        grid-template-columns: repeat(2, 50%);
+        margin: 25px 0 100px 0;
+        gap: 10px;
+        grid-template-rows: repeat(3, auto);
+        grid-template-areas: 
+        'limit limit'
+        'gender  gender'
+        'age age'
+        'muscle muscle'
+        'pregnancy pregnancy'
+        'race race'
+    }
+    .genTitle {
+        font-size: 32px;
+    }
+    .wrapItem1, .wrapItem2, .wrapItem3, .wrapItem4, .wrapItem5 {
+        width: 80%;
+        height: 127px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 345px) {}
